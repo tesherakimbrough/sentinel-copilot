@@ -7,6 +7,9 @@
 
 ![Sentinel Copilot Banner](./banner.png)
 
+![Python Tests](https://github.com/tesherakimbrough/sentinel-copilot/actions/workflows/python-tests.yml/badge.svg)
+
+
 # Sentinel Copilot
 
 > **Instant security insights from log files—no cloud keys or data science degree required. Upload, analyze, and export in seconds.**
