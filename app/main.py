@@ -1,7 +1,8 @@
 # Streamlit Frontend
 import streamlit as st
-from app.ai_engine import analyze_logs
-from app.log_parser import parse_logs
+from ai_engine import analyze_logs
+from log_parser import parse_logs
+
 import pandas as pd
 
 st.title("Sentinel Copilot")
