@@ -1,4 +1,2 @@
-[server]
-headless = true
-enableCORS=false
-port = 8501
+[theme]
+base="auto"  # options: "light", "dark", or "auto"
