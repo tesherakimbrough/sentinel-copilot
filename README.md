@@ -4,69 +4,125 @@
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-3776AB?logo=matplotlib)
 ![MIT License](https://img.shields.io/badge/License-MIT-green)
 
+![Sentinel Copilot Banner](./banner.png)
+
 # Sentinel Copilot
 
-**Live demo:** [sentinel-copilot.streamlit.app](https://sentinel-copilot.streamlit.app)  
-**GitHub repo:** [github.com/tesherakimbrough/sentinel-copilot](https://github.com/tesherakimbrough/sentinel-copilot)
+**Sentinel Copilot** is a security log analysis tool designed to help you turn raw CSV logs into meaningful insights—fast. Upload your logs, explore interactive visualizations, and get instant summaries that help you spot trends or suspicious activity.
+
+Try it live: [sentinel-copilot.streamlit.app](https://sentinel-copilot.streamlit.app/)
 
 ---
 
 ## Why I Built This
 
-Security logs can be overwhelming and time-consuming to analyze, especially when you’re under pressure. I built Sentinel Copilot to make log analysis more approachable—something that feels modern and actually helps you get real answers fast.  
-I wanted a tool that would let me upload a log file, explore it, filter and search, get visual feedback, and see an incident summary—all in one place.  
-This project is what I wish I’d had when I was learning security operations and wanted to move faster and learn more from my data.
-
----
-
-## Features
-
-- 🗃️ **Drag-and-drop CSV log upload** (or use a sample instantly)
-- 📉 **Summary metrics:** total events, unique IPs, event types
-- 🚦 **Top offenders:** highlights most frequent event and noisiest source IP
-- 🔍 **Powerful filters:** search, multi-select for events/IPs, date range slider
-- 📊 **Charts:** event frequency, top source IPs, (line graph for multi-day logs)
-- 🤖 **AI-generated incident summaries** (mocked or live API ready)
-- 💾 **Export:** download filtered logs or a full incident report
-- 🌙/☀️ **Dark/light mode toggle**
+I work in security analysis and I’m teaching myself software engineering. After spending too many hours buried in log files, I wanted a tool that’s quick, visual, and actually useful—no advanced degree needed. Sentinel Copilot is my solution: upload a file, get results, and get on with your day.
 
 ---
 
 ## Quick Start
 
-1. **Upload** a CSV log file (or click “Load Sample Data”)
-2. **Explore** summary stats and data preview
-3. **Filter** by keyword, event type, source IP, or date
-4. **Visualize** the patterns in your logs
-5. **Read** an instant AI summary
-6. **Export** filtered data or an incident report
+1. **Clone the repository**
+    ```bash
+    git clone https://github.com/tesherakimbrough/sentinel-copilot.git
+    cd sentinel-copilot
+    ```
+
+2. **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Run the app**
+    ```bash
+    streamlit run app/main.py
+    ```
+
+Or try it instantly on the [live Streamlit demo](https://sentinel-copilot.streamlit.app/).
 
 ---
 
-## Screenshot
+## What Makes Sentinel Copilot Different?
 
-![Sentinel Copilot Dashboard](screenshot.png)
+- **Dark/Light Mode Toggle:** Pick your favorite theme for comfort.
+- **Interactive Filtering:** Search, sort, and filter logs by IP, event type, date, or keywords.
+- **Visual Summaries:** Instant charts for event frequency, source IP activity, and more.
+- **Downloadable Reports:** Export summaries or filtered logs as CSV with one click.
+- **No AI Hype—Just Useful Automation:** Mock “AI summary” is built in, and it’s ready for plug-and-play with OpenAI if you want to add GPT-based analysis later.
+- **Open Source & Easy to Extend:** Clean codebase and modular structure. Fork away.
+
+---
+
+## Features at a Glance
+
+- Upload log files (CSV)
+- See top events and “noisiest” IPs right away
+- Explore interactive charts and tables
+- Filter logs by any field (including by date)
+- Toggle between dark and light themes
+- Download filtered results or summaries
 
 ---
 
 ## Architecture Overview
 
-```
+```text
 User Uploads Log File
-|
-▼
+       ↓
 Log Parser (Python/pandas)
-|
-▼
+       ↓
 AI Summary (mock/table, ready for OpenAI integration)
-├─► Visualizations (matplotlib/Streamlit)
-└─► Downloadable Report
+      ├── Visualizations (matplotlib/Streamlit)
+      └── Downloadable Report
+
 ```
 
+## Sample Data
 
-*Each step is modular and easy to extend with your own logic, APIs, or AI models.*
+You can test Sentinel Copilot right away with the provided `sample_logs/example_log.csv`.
+
+Preview:
+
+| timestamp           | source_ip    | event_type    |
+|---------------------|-------------|---------------|
+| 2025-06-01T12:00:00Z| 192.168.1.1 | login_success |
+| 2025-06-01T12:05:00Z| 10.0.0.5    | login_failure |
+| 2025-06-01T13:15:00Z| 10.0.0.5    | login_failure |
+| 2025-06-01T14:00:00Z| 192.168.1.1 | login_success |
+
+
+
+<details>
+<summary>Click to view raw CSV</summary>
+
+```
+timestamp,source_ip,event_type
+2025-06-01T12:00:00Z,192.168.1.1,login_success
+2025-06-01T12:05:00Z,10.0.0.5,login_failure
+2025-06-01T13:15:00Z,10.0.0.5,login_failure
+2025-06-01T14:00:00Z,192.168.1.1,login_success
+```
+</details>
+
+## Screenshots
+
+![Sentinel Copilot Dashboard](screenshot.png) <!-- Replace with your actual screenshot filename -->
 
 ---
+
+## What’s Next?
+
+- Plug in OpenAI for true LLM-based summaries
+- Support for more log formats (JSON, syslog, etc.)
+- User authentication for team use
+
+---
+
+## Connect & Contact
+
+Want to chat, collaborate, or just see what else I’m working on?
+
+[LinkedIn](https://www.linkedin.com/in/tesherakimbrough) | [GitHub](https://github.com/tesherakimbrough)
 
 ## Built With
 
@@ -76,13 +132,3 @@ AI Summary (mock/table, ready for OpenAI integration)
 - [Matplotlib](https://matplotlib.org/)
 
 ---
-
-## Want to Connect?
-
-I built Sentinel Copilot to make security analysis more direct and useful for people like me who want to get better at security engineering and data analysis.  
-If you want to talk security, collaboration, or career opportunities,  
-**connect with me on [LinkedIn](https://www.linkedin.com/in/tesherakimbrough/)**
-
----
-
-[GitHub Repo](https://github.com/tesherakimbrough/sentinel-copilot)
