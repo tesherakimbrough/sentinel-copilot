@@ -1,10 +1,10 @@
 # AI engine for natural language summary
-import openai
-
 def analyze_logs(log_df):
-    prompt = f"Summarize the following logs and highlight any threats: {log_df.to_string(index=False)}"
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
+    # MOCK AI OUTPUT (no OpenAI API required)
+    summary = """
+| Event           | Severity | Explanation                                        |
+|-----------------|----------|----------------------------------------------------|
+| login_failure   | High     | Multiple failed logins detected from 10.0.0.5.     |
+| login_success   | Low      | Normal successful login from 192.168.1.1.          |
+"""
+    return summary

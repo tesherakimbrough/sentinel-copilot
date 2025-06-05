@@ -1,9 +1,9 @@
 # Streamlit Frontend
 import streamlit as st
+import datetime
+import pandas as pd
 from ai_engine import analyze_logs
 from log_parser import parse_logs
-
-import pandas as pd
 
 st.title("Sentinel Copilot")
 
@@ -15,3 +15,17 @@ if uploaded_file:
     summary = analyze_logs(parsed)
     st.subheader("AI Summary")
     st.write(summary)
+
+    # --- Incident Report Download Button ---
+    report_text = f"""Sentinel Copilot Incident Report
+Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+Log Analysis Summary:
+{summary}
+"""
+    st.download_button(
+        label="Download Incident Report",
+        data=report_text,
+        file_name=f"sentinel_report_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+        mime="text/plain"
+    )
